@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
   <title id="title">GPM commit</title>
-  <desc id="desc">GPM holds up a glowing green +1 commit at the end of a commit chain.</desc>
+  <desc id="desc">GPM holds up a glowing green +1 commit while the needle on his power meter jumps up.</desc>
   <style>
     .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
     .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
@@ -21,6 +21,9 @@
     @keyframes lift-node { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }  /* body bob + arm lift */
     @keyframes halo { 0% { transform: scale(0.7); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
     @keyframes light { 0%, 40%, 100% { fill: #2ecc9a; } 20% { fill: #dfffee; } }
+    .ndl { transform-box: fill-box; transform-origin: 50% 100%; }
+    .ndl { animation: tick 2.4s ease-in-out infinite; }
+    @keyframes tick { 0%, 100% { transform: rotate(-40deg); } 50%, 70% { transform: rotate(0); } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <defs>
@@ -29,6 +32,9 @@
       <stop offset="0" stop-color="#ffe680" stop-opacity="0.7"/><stop offset="0.45" stop-color="#ffb020" stop-opacity="0.35"/>
       <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="dial" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f8cff"/><stop offset="0.4" stop-color="#2ecc9a"/><stop offset="0.7" stop-color="#ffb020"/><stop offset="1" stop-color="#ff5e3a"/>
+    </linearGradient>
   </defs>
   <rect width="400" height="400" rx="28" fill="url(#bg)"/>
   <circle class="glow" cx="200" cy="200" r="150" fill="url(#glow)"/>
@@ -46,7 +52,13 @@
   <path d="M564 186 Q600 172 636 186 L630 292 H570 Z" fill="#6c4cff"/>
   <rect x="568" y="274" width="64" height="13" rx="4" fill="#ffb020"/>
   <rect x="592" y="272" width="16" height="17" rx="3" fill="#fff3b0"/>
-  <g class="arm-l"><path d="M568 194 L538 238 L566 266" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="566" cy="266" r="11" fill="#ffb020"/></g>
+  <g class="arm-l"><path d="M568 194 L534 222 L506 226" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="504" cy="226" r="12" fill="#ffb020"/><g transform="rotate(0 504 226)">
+    <path d="M504 212 V226" stroke="#2b2d55" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="504" cy="184" r="30" fill="#1b2350" stroke="#ffcf6b" stroke-width="4"/>
+    <path d="M489.9 201.1 A20 20 0 1 1 518.1 201.1" fill="none" stroke="url(#dial)" stroke-width="6.5" stroke-linecap="round"/>
+    <g transform="rotate(68 504 187)"><g class="ndl"><path d="M501 187 L504 169 L507 187 Z" fill="#fff3b0"/></g></g>
+    <circle cx="504" cy="187" r="4.5" fill="#ffcf6b"/>
+    </g><circle cx="504" cy="226" r="12" fill="#ffb020"/></g>
   <circle cx="600" cy="224" r="24" fill="#ffcf6b" stroke="#fff3b0" stroke-width="3"/>
   <g stroke="#1a1f3d" stroke-width="3.5" fill="none" stroke-linecap="round"><path d="M592 210 V238"/><path d="M608 214 C608 226 592 222 592 232"/></g>
   <g fill="#1a1f3d"><circle cx="592" cy="210" r="4"/><circle cx="592" cy="238" r="4"/><circle cx="608" cy="214" r="4"/></g>

@@ -43,6 +43,30 @@ WAVE_R = arm([(632, 194), (664, 158), (672, 118)], (674, 110), 13, "open")
 HOLD_R = arm([(632, 194), (660, 150), (666, 118)], (667, 112), 12)
 LENS_R = arm([(632, 194), (664, 170), (676, 136)], (677, 128), 12)
 
+
+def meter_arm(points, hand, reading, tilt=0):
+    """Arm gripping a power meter by its handle; the dial sits 42 units above the hand.
+
+    reading 0..1 sets the needle (LOW..MAX). tilt rotates the meter about the hand.
+    The needle's inner <g class="ndl"> is the animated part (see NEEDLE)."""
+    hx, hy = hand
+    cx, cy = hx, hy - 42
+    px, py = cx, cy + 3  # needle pivot
+    deg = round(-135 + 270 * reading)
+    s = arm(points, hand, 12)
+    s += f'''<g transform="rotate({tilt} {hx} {hy})">
+    <path d="M{cx} {cy + 28} V{hy}" stroke="#2b2d55" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="{cx}" cy="{cy}" r="30" fill="#1b2350" stroke="#ffcf6b" stroke-width="4"/>
+    <path d="M{px - 14.1:.1f} {py + 14.1:.1f} A20 20 0 1 1 {px + 14.1:.1f} {py + 14.1:.1f}" fill="none" stroke="url(#dial)" stroke-width="6.5" stroke-linecap="round"/>
+    <g transform="rotate({deg} {px} {py})"><g class="ndl"><path d="M{px - 3} {py} L{px} {py - 18} L{px + 3} {py} Z" fill="#fff3b0"/></g></g>
+    <circle cx="{px}" cy="{py}" r="4.5" fill="#ffcf6b"/>
+    </g>'''
+    return s + f'<circle cx="{hx}" cy="{hy}" r="12" fill="{GOLD}"/>'  # fingers over the handle
+
+
+METER_L = dict(points=[(568, 194), (534, 222), (506, 226)], hand=(504, 226))
+METER_R = dict(points=[(632, 194), (666, 222), (694, 226)], hand=(696, 226))
+
 SMILE = '<path d="M591 160 Q600 167 609 160" fill="none" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/>'
 GRIN = ('<path d="M588 157 Q600 174 612 157 Z" fill="#7a3b2e"/>'
         '<path d="M591 158 H609 L607 162 H593 Z" fill="#ffffff"/>')
@@ -91,6 +115,34 @@ BASE_CSS = '''
     @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
     @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }'''
+# Needle motion, rotated about the needle's base (relative to its still reading).
+NEEDLE_BASE = '''
+    .ndl { transform-box: fill-box; transform-origin: 50% 100%; }'''
+NEEDLE = {
+    # revs up as the fist pumps
+    "rev": '''
+    .ndl { animation: rev 2.4s ease-in-out infinite; }
+    @keyframes rev { 0%, 100% { transform: rotate(-45deg); } 50% { transform: rotate(0); } }''',
+    "wobble": '''
+    .ndl { animation: wobble-n 1.2s ease-in-out infinite; }
+    @keyframes wobble-n { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }''',
+    # pinned against MAX, rattling
+    "peg": '''
+    .ndl { animation: peg 0.24s linear infinite alternate; }
+    @keyframes peg { from { transform: rotate(-5deg); } to { transform: rotate(2deg); } }''',
+    # jumps up with each +1 commit lift
+    "tick": '''
+    .ndl { animation: tick 2.4s ease-in-out infinite; }
+    @keyframes tick { 0%, 100% { transform: rotate(-40deg); } 50%, 70% { transform: rotate(0); } }''',
+    # sinks to LOW and twitches
+    "sink": '''
+    .ndl { animation: sink 2.4s ease-in-out infinite; }
+    @keyframes sink { 0% { transform: rotate(60deg); } 40%, 100% { transform: rotate(0); } 60% { transform: rotate(8deg); } 70% { transform: rotate(0); } }''',
+}
+DIAL = '''
+    <linearGradient id="dial" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f8cff"/><stop offset="0.4" stop-color="#2ecc9a"/><stop offset="0.7" stop-color="#ffb020"/><stop offset="1" stop-color="#ff5e3a"/>
+    </linearGradient>'''
 REDUCED = '''
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }'''
 
@@ -165,17 +217,18 @@ HEAD = '''<?xml version="1.0" encoding="UTF-8"?>
     <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0" stop-color="#ffe680" stop-opacity="0.7"/><stop offset="0.45" stop-color="#ffb020" stop-opacity="0.35"/>
       <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
-    </radialGradient>
+    </radialGradient>{defs}
   </defs>
   <rect width="400" height="400" rx="28" fill="url(#bg)"/>'''
 
 
-def head(name, title, desc):
-    return HEAD.format(title=title, desc=desc, css=BASE_CSS + MOTION[name] + REDUCED)
+def head(name, title, desc, needle=None):
+    css = BASE_CSS + MOTION[name] + (NEEDLE_BASE + NEEDLE[needle] if needle else "") + REDUCED
+    return HEAD.format(title=title, desc=desc, css=css, defs=DIAL if needle else "")
 
 
-def page(name, title, desc, caption, body, back="", front=""):
-    return head(name, title, desc) + f'''
+def page(name, title, desc, caption, body, back="", front="", needle=None):
+    return head(name, title, desc, needle) + f'''
   <circle class="glow" cx="200" cy="200" r="150" fill="url(#glow)"/>
   {back}
   <g transform="translate(-400 -48)"><g class="fig">{body}
@@ -233,25 +286,33 @@ OOPS = '''<path class="drop" d="M286 66 C292 78 296 86 296 92 C296 100 290 104 2
     <rect x="23" y="13" width="6" height="17" rx="3" fill="#ffffff"/><circle cx="26" cy="36" r="3.5" fill="#ffffff"/></g></g>'''
 
 # ── pictures ─────────────────────────────────────────────────────────────────
+# Every full-body pose holds his power meter; the needle tells the story.
 PICTURES = {
-    "gpm-hero": ("GPM hero", "GPM stands proud with one fist raised and the other hand on his hip.",
-                   "GPM", hero(FIST_UP_L, HIP_R), star(80, 90, 10, "#fff3b0") + star(320, 120, 7, "#ffffff", "tw b"), ""),
-    "gpm-wave": ("GPM waving", "GPM grins and waves hello.",
-                   "Hello, developer!", hero(DOWN_L, WAVE_R, GRIN), WAVE_LINES, ""),
-    "gpm-flying": ("GPM flying", "GPM flies up and to the right, fist forward, cape streaming behind him.",
-                     "Push to main!", f'<g transform="translate(-10 -40) rotate(55 600 245)">{hero(FIST_UP_L, HIP_R, GRIN)}</g>', SPEED, ""),
-    "gpm-commit": ("GPM commit", "GPM holds up a glowing green +1 commit at the end of a commit chain.",
-                     "Commit power!", hero(HIP_L, HOLD_R, GRIN), COMMIT_CHAIN, COMMIT_NODE),
-    "gpm-review": ("GPM code review", "GPM inspects lines of code with a big magnifying glass.",
-                     "Code review!", hero(HIP_L, LENS_R), CODE, LENS),
-    "gpm-celebrate": ("GPM celebrating", "GPM raises both fists and grins as confetti falls.",
-                        "Level up!", hero(FIST_UP_L, FIST_UP_R, GRIN), CONFETTI, ""),
-    "gpm-oops": ("GPM oops", "GPM looks worried next to a warning sign: something went wrong.",
-                   "Oops! Merge conflict", hero(DOWN_L, DOWN_R, WORRY), "", OOPS),
+    "gpm-hero": ("GPM hero", "GPM stands proud with one fist raised, holding out his power meter as the needle revs toward max.",
+                 "GPM", hero(FIST_UP_L, meter_arm(**METER_R, reading=0.85)),
+                 star(80, 90, 10, "#fff3b0") + star(320, 70, 7, "#ffffff", "tw b"), "", "rev"),
+    "gpm-wave": ("GPM waving", "GPM grins and waves hello, his power meter in the other hand.",
+                 "Hello, developer!", hero(meter_arm(**METER_L, reading=0.6), WAVE_R, GRIN), WAVE_LINES, "", "wobble"),
+    "gpm-flying": ("GPM flying", "GPM flies up and to the right, fist forward, cape streaming, power meter pegged at max.",
+                   "Push to main!",
+                   f'<g transform="translate(-10 -40) rotate(55 600 245)">{hero(FIST_UP_L, meter_arm(**METER_R, reading=0.95, tilt=-55), GRIN)}</g>',
+                   SPEED, "", "peg"),
+    "gpm-commit": ("GPM commit", "GPM holds up a glowing green +1 commit while the needle on his power meter jumps up.",
+                   "Commit power!", hero(meter_arm(**METER_L, reading=0.75), HOLD_R, GRIN), COMMIT_CHAIN, COMMIT_NODE, "tick"),
+    "gpm-review": ("GPM code review", "GPM inspects lines of code with a big magnifying glass, his power meter at his side.",
+                   "Code review!",
+                   hero(meter_arm([(568, 194), (550, 242), (536, 280)], (534, 284), reading=0.55), LENS_R), CODE, LENS, "wobble"),
+    "gpm-celebrate": ("GPM celebrating", "GPM grins with one fist up and his power meter raised high, needle pinned at max, as confetti falls.",
+                      "Level up!",
+                      hero(FIST_UP_L, meter_arm([(632, 194), (664, 164), (684, 136)], (686, 132), reading=1.0), GRIN),
+                      CONFETTI, "", "peg"),
+    "gpm-oops": ("GPM oops", "GPM looks worried next to a warning sign as the needle on his power meter sinks to low.",
+                 "Oops! Merge conflict",
+                 hero(DOWN_L, meter_arm([(632, 194), (656, 234), (676, 256)], (678, 258), reading=0.08), WORRY), "", OOPS, "sink"),
 }
 
-for name, (title, desc, caption, body, back, front) in PICTURES.items():
-    (OUT / f"{name}.svg").write_text(page(name, title, desc, caption, body, back, front))
+for name, (title, desc, caption, body, back, front, needle) in PICTURES.items():
+    (OUT / f"{name}.svg").write_text(page(name, title, desc, caption, body, back, front, needle))
 
 # avatar: head-and-shoulders close-up, no caption
 (OUT / "gpm-avatar.svg").write_text(head(

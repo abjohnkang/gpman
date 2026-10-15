@@ -30,15 +30,15 @@ GPM is the gpman mascot: the Git Power Meter as a caped hero, with a git branch 
 
 <table>
   <tr>
-    <td align="center"><img src="assets/gpm/gpm-hero.svg" alt="GPM standing proud with one fist raised" width="160"><br><sub>Hero</sub></td>
-    <td align="center"><img src="assets/gpm/gpm-wave.svg" alt="GPM waving hello" width="160"><br><sub>Hello</sub></td>
-    <td align="center"><img src="assets/gpm/gpm-commit.svg" alt="GPM holding up a glowing +1 commit" width="160"><br><sub>Commit</sub></td>
-    <td align="center"><img src="assets/gpm/gpm-flying.svg" alt="GPM flying with his cape streaming" width="160"><br><sub>Push</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-hero.svg" alt="GPM standing proud with one fist raised, holding out his power meter" width="160"><br><sub>Hero</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-wave.svg" alt="GPM waving hello with his power meter in the other hand" width="160"><br><sub>Hello</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-commit.svg" alt="GPM holding up a glowing +1 commit as his power meter jumps up" width="160"><br><sub>Commit</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-flying.svg" alt="GPM flying with his cape streaming, power meter pegged at max" width="160"><br><sub>Push</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/gpm/gpm-review.svg" alt="GPM inspecting code with a magnifying glass" width="160"><br><sub>Code review</sub></td>
-    <td align="center"><img src="assets/gpm/gpm-celebrate.svg" alt="GPM celebrating with both fists up and confetti" width="160"><br><sub>Level up</sub></td>
-    <td align="center"><img src="assets/gpm/gpm-oops.svg" alt="GPM looking worried next to a warning sign" width="160"><br><sub>Oops</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-review.svg" alt="GPM inspecting code with a magnifying glass, power meter at his side" width="160"><br><sub>Code review</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-celebrate.svg" alt="GPM celebrating in confetti with his power meter raised high at max" width="160"><br><sub>Level up</sub></td>
+    <td align="center"><img src="assets/gpm/gpm-oops.svg" alt="GPM looking worried next to a warning sign as his power meter sinks to low" width="160"><br><sub>Oops</sub></td>
     <td align="center"><img src="assets/gpm/gpm-avatar.svg" alt="Close-up of GPM's grinning masked face" width="160"><br><sub>Avatar</sub></td>
   </tr>
 </table>
