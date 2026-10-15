@@ -59,7 +59,7 @@ Face cuts for reactions, stickers and status messages:
 
 The SVGs in [`assets/gpm/`](assets/gpm/) are animated (CSS, paused for viewers who prefer reduced motion); still 800×800 PNGs are in [`assets/gpm/png/`](assets/gpm/png/). To change or add a picture, edit [`scripts/make_gpm.py`](scripts/make_gpm.py) and run `python3 scripts/make_gpm.py assets/gpm`.
 
-A GPM favicon set for the website is in [`assets/favicon/`](assets/favicon/) (made by [`scripts/make_favicon.py`](scripts/make_favicon.py)). Copy it to the site root and add:
+A power-meter favicon set for the website is in [`assets/favicon/`](assets/favicon/) (made by [`scripts/make_favicon.py`](scripts/make_favicon.py)). Copy it to the site root and add:
 
 ```html
 <link rel="icon" href="/favicon.ico" sizes="48x48">
