@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">GPMan bored</title>
+  <desc id="desc">GPMan looks bored, eyes half closed and glancing aside, sighing.</desc>
+  <style>
+    .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
+    .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
+    .fig { animation: bob 2.4s ease-in-out infinite; }
+    .tw { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; }
+    .tw.b { animation-delay: -0.9s; }
+    @keyframes glow { 0%, 100% { transform: scale(0.94); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
+    @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+    .hd { transform-origin: 600px 178px; animation: sway 4s ease-in-out infinite; }
+    .puff { animation: sigh 4s ease-out infinite; }
+    @keyframes sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(1deg); } }
+    @keyframes sigh { 0%, 30% { transform: translate(-16px, 10px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translate(12px, -14px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#151b3a"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe680" stop-opacity="0.7"/><stop offset="0.45" stop-color="#ffb020" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="28" fill="url(#bg)"/>
+  <circle class="glow" cx="200" cy="190" r="170" fill="url(#glow)"/>
+  <g transform="translate(200 210) scale(4) translate(-600 -150)">
+    <g class="cape"><path d="M566 182 C528 236 510 330 482 400 L718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/></g>
+    <path d="M564 186 Q600 172 636 186 L640 230 H560 Z" fill="#6c4cff"/>
+    <rect x="592" y="166" width="16" height="18" fill="#f2c39c"/>
+    <g class="hd">
+    <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
+    <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
+    <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
+    <path d="M581 146 H593 A6 4 0 0 1 581 146 Z" fill="#fff"/><path d="M607 146 H619 A6 4 0 0 1 607 146 Z" fill="#fff"/><path d="M579.5 146 H594.5 M605.5 146 H620.5" stroke="#3b2aa0" stroke-width="2" stroke-linecap="round"/><circle cx="591" cy="147.6" r="1.6" fill="#1a1f3d"/><circle cx="617" cy="147.6" r="1.6" fill="#1a1f3d"/><path d="M592 162 L608 160" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g class="puff"><circle cx="300" cy="300" r="14" fill="#c9d4f5" opacity="0.5"/><circle cx="322" cy="290" r="10" fill="#c9d4f5" opacity="0.4"/>
+    <circle cx="338" cy="278" r="6" fill="#c9d4f5" opacity="0.3"/></g>
+</svg>

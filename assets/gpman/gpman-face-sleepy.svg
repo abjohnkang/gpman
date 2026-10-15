@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">GPMan sleepy</title>
+  <desc id="desc">GPMan dozes off with closed eyes as Z letters float up.</desc>
+  <style>
+    .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
+    .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
+    .fig { animation: bob 2.4s ease-in-out infinite; }
+    .tw { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; }
+    .tw.b { animation-delay: -0.9s; }
+    @keyframes glow { 0%, 100% { transform: scale(0.94); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
+    @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+    .hd { transform-origin: 600px 178px; animation: nod 3s ease-in-out infinite; }
+    .z1, .z2, .z3 { animation: float 3s ease-out infinite; }
+    .z2 { animation-delay: 1s; } .z3 { animation-delay: 2s; }
+    @keyframes nod { 0%, 100% { transform: rotate(0); } 60% { transform: rotate(7deg); } }
+    @keyframes float { 0% { transform: translate(0, 12px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(14px, -18px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#151b3a"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe680" stop-opacity="0.7"/><stop offset="0.45" stop-color="#ffb020" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="28" fill="url(#bg)"/>
+  <circle class="glow" cx="200" cy="190" r="170" fill="url(#glow)"/>
+  <g transform="translate(200 210) scale(4) translate(-600 -150)">
+    <g class="cape"><path d="M566 182 C528 236 510 330 482 400 L718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/></g>
+    <path d="M564 186 Q600 172 636 186 L640 230 H560 Z" fill="#6c4cff"/>
+    <rect x="592" y="166" width="16" height="18" fill="#f2c39c"/>
+    <g class="hd">
+    <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
+    <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
+    <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
+    <path d="M581 148 Q587 154 593 148" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M607 148 Q613 154 619 148" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><g class=""><circle cx="579" cy="161" r="5" fill="#ff8a8a" opacity="0.35"/><circle cx="621" cy="161" r="5" fill="#ff8a8a" opacity="0.35"/></g><ellipse cx="600" cy="162" rx="2.6" ry="3" fill="#7a3b2e"/>
+    </g>
+  </g>
+  <text class="z1" x="286" y="120" fill="#c9d4f5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="40" font-weight="800">Z</text><text class="z2" x="322" y="86" fill="#c9d4f5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800">Z</text><text class="z3" x="348" y="58" fill="#c9d4f5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="800">Z</text>
+</svg>

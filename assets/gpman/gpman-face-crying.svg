@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">GPMan crying</title>
+  <desc id="desc">GPMan cries, tears streaming from his eyes.</desc>
+  <style>
+    .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
+    .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
+    .fig { animation: bob 2.4s ease-in-out infinite; }
+    .tw { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; }
+    .tw.b { animation-delay: -0.9s; }
+    @keyframes glow { 0%, 100% { transform: scale(0.94); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
+    @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+    .hd { animation: sob 1.2s ease-in-out infinite; }
+    .mw { transform-origin: 600px 163px; animation: wobble 0.6s ease-in-out infinite alternate; }
+    .drop { animation: fall-tear 1.2s ease-in infinite; }
+    .drop.b { animation-delay: -0.6s; }
+    @keyframes sob { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-1.2px); } 60% { transform: translateY(0.4px); } }
+    @keyframes wobble { from { transform: scaleX(1); } to { transform: scaleX(0.85); } }
+    @keyframes fall-tear { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(14px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#151b3a"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe680" stop-opacity="0.7"/><stop offset="0.45" stop-color="#ffb020" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="28" fill="url(#bg)"/>
+  <circle class="glow" cx="200" cy="190" r="170" fill="url(#glow)"/>
+  <g transform="translate(200 210) scale(4) translate(-600 -150)">
+    <g class="cape"><path d="M566 182 C528 236 510 330 482 400 L718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/></g>
+    <path d="M564 186 Q600 172 636 186 L640 230 H560 Z" fill="#6c4cff"/>
+    <rect x="592" y="166" width="16" height="18" fill="#f2c39c"/>
+    <g class="hd">
+    <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
+    <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
+    <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
+    <ellipse cx="587" cy="146" rx="6" ry="4.6" fill="#fff"/><ellipse cx="613" cy="146" rx="6" ry="4.6" fill="#fff"/><path d="M581.2 147 Q587 152 592.8 147 Q587 149 581.2 147 Z" fill="#9fd3ff"/><path d="M607.2 147 Q613 152 618.8 147 Q613 149 607.2 147 Z" fill="#9fd3ff"/><circle cx="588.5" cy="145.5" r="2" fill="#1a1f3d"/><circle cx="611.5" cy="145.5" r="2" fill="#1a1f3d"/><circle cx="587.6" cy="144.6" r="0.8" fill="#fff"/><circle cx="610.6" cy="144.6" r="0.8" fill="#fff"/><path d="M578 139 L593 135.5 M622 139 L607 135.5" stroke="#1a1f3d" stroke-width="2.6" stroke-linecap="round"/><path d="M584 152 Q582 160 584 170 M616 152 Q618 160 616 170" fill="none" stroke="#9fd3ff" stroke-width="3" stroke-linecap="round" opacity="0.9"/><path class="mw" d="M590 166 Q600 156 610 166 Q600 162.5 590 166 Z" fill="#7a3b2e"/><g class="drop"><path d="M584 171 C586 174 587 176 587 177.5 C587 179.3 585.7 180.4 584 180.4 C582.3 180.4 581 179.3 581 177.5 C581 176 582 174 584 171 Z" fill="#9fd3ff"/></g><g class="drop b"><path d="M616 171 C618 174 619 176 619 177.5 C619 179.3 617.7 180.4 616 180.4 C614.3 180.4 613 179.3 613 177.5 C613 176 614 174 616 171 Z" fill="#9fd3ff"/></g>
+    </g>
+  </g>
+  
+</svg>

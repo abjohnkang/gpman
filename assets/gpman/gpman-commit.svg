@@ -2,6 +2,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
   <title id="title">GPMan commit</title>
   <desc id="desc">GPMan holds up a glowing green +1 commit at the end of a commit chain.</desc>
+  <style>
+    .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
+    .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
+    .fig { animation: bob 2.4s ease-in-out infinite; }
+    .tw { transform-box: fill-box; transform-origin: center; animation: twinkle 1.8s ease-in-out infinite; }
+    .tw.b { animation-delay: -0.9s; }
+    @keyframes glow { 0%, 100% { transform: scale(0.94); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
+    @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+    .arm-r { transform-origin: 632px 194px; animation: lift 2.4s ease-in-out infinite; }
+    .node { transform-origin: 267px 36px; animation: lift-node 2.4s ease-in-out infinite; }
+    .halo { transform-box: fill-box; transform-origin: center; animation: halo 1.2s ease-out infinite; }
+    .dot { animation: light 2.4s ease-in-out infinite; }
+    .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.6s; }
+    @keyframes lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @keyframes lift-node { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }  /* body bob + arm lift */
+    @keyframes halo { 0% { transform: scale(0.7); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
+    @keyframes light { 0%, 40%, 100% { fill: #2ecc9a; } 20% { fill: #dfffee; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#151b3a"/></linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
@@ -10,20 +31,22 @@
     </radialGradient>
   </defs>
   <rect width="400" height="400" rx="28" fill="url(#bg)"/>
-  <circle cx="200" cy="200" r="150" fill="url(#glow)"/>
-  <path d="M36 36 H247" stroke="#2ecc9a" stroke-width="5" stroke-linecap="round" opacity="0.7"/><g stroke="#0b1020" stroke-width="3" fill="#2ecc9a"><circle cx="50" cy="36" r="8"/><circle cx="100" cy="36" r="8"/><circle cx="150" cy="36" r="8"/><circle cx="200" cy="36" r="8"/></g>
-  <g transform="translate(-400 -48)">
-  <path d="M566 182 C528 236 510 330 482 400 Q540 382 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/>
-  <path d="M600 190 C596 270 596 330 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#e8590c"/>
+  <circle class="glow" cx="200" cy="200" r="150" fill="url(#glow)"/>
+  <path d="M36 36 H247" stroke="#2ecc9a" stroke-width="5" stroke-linecap="round" opacity="0.7"/><g stroke="#0b1020" stroke-width="3"><circle class="dot d1" cx="50" cy="36" r="8" fill="#2ecc9a"/><circle class="dot d2" cx="100" cy="36" r="8" fill="#2ecc9a"/><circle class="dot d3" cx="150" cy="36" r="8" fill="#2ecc9a"/><circle class="dot d4" cx="200" cy="36" r="8" fill="#2ecc9a"/></g>
+  <g transform="translate(-400 -48)"><g class="fig">
+  <g class="cape">
+    <path d="M566 182 C528 236 510 330 482 400 Q540 382 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/>
+    <path d="M600 190 C596 270 596 330 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#e8590c"/>
+  </g>
   <path d="M572 286 L566 382 H594 L599 286 Z" fill="#5a3fd6"/>
   <path d="M601 286 L606 382 H634 L628 286 Z" fill="#5a3fd6"/>
   <path d="M567 352 H594 L594 384 Q580 392 560 386 Z" fill="#ffb020"/>
   <path d="M606 352 H633 L640 386 Q620 392 606 384 Z" fill="#ffb020"/>
-  <path d="M632 194 L660 150 L666 118" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="667" cy="112" r="12" fill="#ffb020"/>
+  <g class="arm-r"><path d="M632 194 L660 150 L666 118" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="667" cy="112" r="12" fill="#ffb020"/></g>
   <path d="M564 186 Q600 172 636 186 L630 292 H570 Z" fill="#6c4cff"/>
   <rect x="568" y="274" width="64" height="13" rx="4" fill="#ffb020"/>
   <rect x="592" y="272" width="16" height="17" rx="3" fill="#fff3b0"/>
-  <path d="M568 194 L538 238 L566 266" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="566" cy="266" r="11" fill="#ffb020"/>
+  <g class="arm-l"><path d="M568 194 L538 238 L566 266" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="566" cy="266" r="11" fill="#ffb020"/></g>
   <circle cx="600" cy="224" r="24" fill="#ffcf6b" stroke="#fff3b0" stroke-width="3"/>
   <g stroke="#1a1f3d" stroke-width="3.5" fill="none" stroke-linecap="round"><path d="M592 210 V238"/><path d="M608 214 C608 226 592 222 592 232"/></g>
   <g fill="#1a1f3d"><circle cx="592" cy="210" r="4"/><circle cx="592" cy="238" r="4"/><circle cx="608" cy="214" r="4"/></g>
@@ -31,12 +54,14 @@
   <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
   <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
   <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
-  <ellipse cx="587" cy="146" rx="6" ry="4" fill="#ffffff"/>
-  <ellipse cx="613" cy="146" rx="6" ry="4" fill="#ffffff"/>
+  <g class="eyes"><ellipse cx="587" cy="146" rx="6" ry="4" fill="#ffffff"/><ellipse cx="613" cy="146" rx="6" ry="4" fill="#ffffff"/></g>
   <path d="M588 157 Q600 174 612 157 Z" fill="#7a3b2e"/><path d="M591 158 H609 L607 162 H593 Z" fill="#ffffff"/>
+  </g></g>
+  <g class="node">
+    <circle class="halo" cx="267" cy="36" r="24" fill="none" stroke="#2ecc9a" stroke-width="4"/>
+    <circle cx="267" cy="36" r="30" fill="#2ecc9a" opacity="0.25"/>
+    <circle cx="267" cy="36" r="18" fill="#2ecc9a" stroke="#dfffee" stroke-width="4"/>
+    <text x="267" y="41" fill="#0b1020" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="700" text-anchor="middle">+1</text>
   </g>
-  <circle cx="267" cy="36" r="30" fill="#2ecc9a" opacity="0.25"/>
-  <circle cx="267" cy="36" r="18" fill="#2ecc9a" stroke="#dfffee" stroke-width="4"/>
-  <text x="267" y="41" fill="#0b1020" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="700" text-anchor="middle">+1</text>
   <text x="200" y="378" fill="#ffcf6b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="1">Commit power!</text>
 </svg>

@@ -33,7 +33,30 @@ GPMan (Git-Power Man) is the Git Power mascot. Feel free to use him in docs, sli
   </tr>
 </table>
 
-SVGs are in [`assets/gpman/`](assets/gpman/) and 800×800 PNGs in [`assets/gpman/png/`](assets/gpman/png/). To change or add a picture, edit [`scripts/make_gpman.py`](scripts/make_gpman.py) and run `python3 scripts/make_gpman.py assets/gpman`.
+Face cuts for reactions, stickers and status messages:
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/gpman/gpman-face-smiling.svg" alt="GPMan smiling" width="100"><br><sub>Smiling</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-happy.svg" alt="GPMan laughing happily" width="100"><br><sub>Happy</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-wink.svg" alt="GPMan winking" width="100"><br><sub>Wink</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-bored.svg" alt="GPMan looking bored" width="100"><br><sub>Bored</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-sleepy.svg" alt="GPMan dozing off" width="100"><br><sub>Sleepy</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-angry.svg" alt="GPMan angry" width="100"><br><sub>Angry</sub></td>
+    <td align="center"><img src="assets/gpman/gpman-face-crying.svg" alt="GPMan crying" width="100"><br><sub>Crying</sub></td>
+  </tr>
+</table>
+
+The SVGs in [`assets/gpman/`](assets/gpman/) are animated (CSS, paused for viewers who prefer reduced motion); still 800×800 PNGs are in [`assets/gpman/png/`](assets/gpman/png/). To change or add a picture, edit [`scripts/make_gpman.py`](scripts/make_gpman.py) and run `python3 scripts/make_gpman.py assets/gpman`.
+
+A GPMan favicon set for the website is in [`assets/favicon/`](assets/favicon/) (made by [`scripts/make_favicon.py`](scripts/make_favicon.py)). Copy it to the site root and add:
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
 
 ## Installation
 
