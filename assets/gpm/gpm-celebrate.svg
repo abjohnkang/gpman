@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
-  <title id="title">GPMan waving</title>
-  <desc id="desc">GPMan grins and waves hello.</desc>
+  <title id="title">GPM celebrating</title>
+  <desc id="desc">GPM raises both fists and grins as confetti falls.</desc>
   <style>
     .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
     .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
@@ -12,11 +12,15 @@
     @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
     @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
-    .arm-r { transform-origin: 632px 194px; animation: wave 1s ease-in-out infinite alternate; }
-    .wl { animation: fade 1s ease-in-out infinite alternate; }
-    .wl.b { animation-delay: -0.5s; }
-    @keyframes wave { from { transform: rotate(-12deg); } to { transform: rotate(10deg); } }
-    @keyframes fade { from { opacity: 0.15; } to { opacity: 1; } }
+    .fig { animation: jump 1.2s ease-in-out infinite; }
+    .arm-l { transform-origin: 568px 194px; animation: cheer-l 0.6s ease-in-out infinite alternate; }
+    .arm-r { transform-origin: 632px 194px; animation: cheer-r 0.6s ease-in-out infinite alternate; }
+    .cf { animation: fall 2.4s linear infinite; }
+    .cf:nth-child(2n) { animation-delay: -0.8s; } .cf:nth-child(3n) { animation-delay: -1.6s; }
+    @keyframes jump { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-16px); } 60% { transform: translateY(-16px); } }
+    @keyframes cheer-l { from { transform: rotate(4deg); } to { transform: rotate(-6deg); } }
+    @keyframes cheer-r { from { transform: rotate(-4deg); } to { transform: rotate(6deg); } }
+    @keyframes fall { 0% { transform: translateY(-30px); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <defs>
@@ -28,7 +32,7 @@
   </defs>
   <rect width="400" height="400" rx="28" fill="url(#bg)"/>
   <circle class="glow" cx="200" cy="200" r="150" fill="url(#glow)"/>
-  <path class="wl" d="M300 70 Q312 84 304 100" fill="none" stroke="#ffcf6b" stroke-width="4" stroke-linecap="round"/><path class="wl b" d="M314 60 Q332 82 318 108" fill="none" stroke="#ffcf6b" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <g><g class="cf"><rect x="60" y="60" width="8" height="14" rx="2" fill="#2ecc9a" transform="rotate(20 64 67)"/></g><g class="cf"><rect x="110" y="40" width="8" height="14" rx="2" fill="#c77dff" transform="rotate(-30 114 47)"/></g><g class="cf"><rect x="300" y="50" width="8" height="14" rx="2" fill="#4f8cff" transform="rotate(35 304 57)"/></g><g class="cf"><rect x="340" y="100" width="8" height="14" rx="2" fill="#ff7a1a" transform="rotate(-15 344 107)"/></g><g class="cf"><rect x="50" y="150" width="8" height="14" rx="2" fill="#ffcf6b" transform="rotate(-40 54 157)"/></g><g class="cf"><rect x="350" y="180" width="8" height="14" rx="2" fill="#2ecc9a" transform="rotate(25 354 187)"/></g><g class="cf"><rect x="80" y="250" width="8" height="14" rx="2" fill="#ff7a1a" transform="rotate(10 84 257)"/></g><g class="cf"><rect x="330" y="270" width="8" height="14" rx="2" fill="#c77dff" transform="rotate(-25 334 277)"/></g></g><path class="tw" d="M150 60 Q150 70 160 70 Q150 70 150 80 Q150 70 140 70 Q150 70 150 60 Z" fill="#fff3b0"/><path class="tw b" d="M270 82 Q270 90 278 90 Q270 90 270 98 Q270 90 262 90 Q270 90 270 82 Z" fill="#ffffff"/>
   <g transform="translate(-400 -48)"><g class="fig">
   <g class="cape">
     <path d="M566 182 C528 236 510 330 482 400 Q540 382 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/>
@@ -38,11 +42,11 @@
   <path d="M601 286 L606 382 H634 L628 286 Z" fill="#5a3fd6"/>
   <path d="M567 352 H594 L594 384 Q580 392 560 386 Z" fill="#ffb020"/>
   <path d="M606 352 H633 L640 386 Q620 392 606 384 Z" fill="#ffb020"/>
-  <g class="arm-r"><path d="M632 194 L664 158 L672 118" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="674" cy="110" r="13" fill="#ffb020"/><rect x="664" y="88" width="6" height="14" rx="3" fill="#ffb020"/><rect x="671" y="88" width="6" height="14" rx="3" fill="#ffb020"/><rect x="678" y="88" width="6" height="14" rx="3" fill="#ffb020"/></g>
+  <g class="arm-r"><path d="M632 194 L660 148 L668 108" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="669" cy="100" r="14" fill="#ffb020"/></g>
   <path d="M564 186 Q600 172 636 186 L630 292 H570 Z" fill="#6c4cff"/>
   <rect x="568" y="274" width="64" height="13" rx="4" fill="#ffb020"/>
   <rect x="592" y="272" width="16" height="17" rx="3" fill="#fff3b0"/>
-  <g class="arm-l"><path d="M568 194 L556 236 L560 270" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="560" cy="274" r="11" fill="#ffb020"/></g>
+  <g class="arm-l"><path d="M568 194 L540 148 L532 108" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="531" cy="100" r="14" fill="#ffb020"/></g>
   <circle cx="600" cy="224" r="24" fill="#ffcf6b" stroke="#fff3b0" stroke-width="3"/>
   <g stroke="#1a1f3d" stroke-width="3.5" fill="none" stroke-linecap="round"><path d="M592 210 V238"/><path d="M608 214 C608 226 592 222 592 232"/></g>
   <g fill="#1a1f3d"><circle cx="592" cy="210" r="4"/><circle cx="592" cy="238" r="4"/><circle cx="608" cy="214" r="4"/></g>
@@ -54,5 +58,5 @@
   <path d="M588 157 Q600 174 612 157 Z" fill="#7a3b2e"/><path d="M591 158 H609 L607 162 H593 Z" fill="#ffffff"/>
   </g></g>
   
-  <text x="200" y="378" fill="#ffcf6b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="1">Hello, developer!</text>
+  <text x="200" y="378" fill="#ffcf6b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="1">Level up!</text>
 </svg>

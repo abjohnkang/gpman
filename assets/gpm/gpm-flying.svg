@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
-  <title id="title">GPMan flying</title>
-  <desc id="desc">GPMan flies up and to the right, fist forward, cape streaming behind him.</desc>
+  <title id="title">GPM flying</title>
+  <desc id="desc">GPM flies up and to the right, fist forward, cape streaming behind him.</desc>
   <style>
     .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
     .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }

@@ -1,4 +1,4 @@
-"""Generate the GPMan favicon set for the website.
+"""Generate the GPM favicon set for the website.
 
     python3 scripts/make_favicon.py assets/favicon
 
@@ -16,9 +16,9 @@ from PIL import Image
 OUT = Path(sys.argv[1])
 OUT.mkdir(parents=True, exist_ok=True)
 
-# GPMan's face, simplified so the purple mask and white eyes still read at 16 px.
+# GPM's face, simplified so the purple mask and white eyes still read at 16 px.
 FAVICON = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <title>GPMan</title>
+  <title>GPM</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b2350"/><stop offset="1" stop-color="#0b1020"/></linearGradient>
   </defs>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="title desc">
   <title id="title">gpmeter concept</title>
-  <desc id="desc">Commit history from your Git branches powers up GPMan (Git-Power Man), a caped superhero who converts it into a power score built from frequency, consistency and impact.</desc>
+  <desc id="desc">Commit history from your Git branches flows into GPM, the caped Git Power Meter hero, and comes out as a reading on a power meter: a needle near max, a power score with a level, and three sub-gauges for frequency, consistency and impact.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -25,6 +25,12 @@
       <stop offset="0" stop-color="#ffb020"/>
       <stop offset="1" stop-color="#ff5e3a"/>
     </linearGradient>
+    <linearGradient id="dial" gradientUnits="userSpaceOnUse" x1="62" y1="0" x2="258" y2="0">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset="0.4" stop-color="#2ecc9a"/>
+      <stop offset="0.7" stop-color="#ffb020"/>
+      <stop offset="1" stop-color="#ff5e3a"/>
+    </linearGradient>
     <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="6"/>
     </filter>
@@ -42,7 +48,7 @@
     <!-- Section labels -->
     <text x="70" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR COMMITS</text>
     <text x="600" y="70" fill="#ffcf6b" font-size="15" font-weight="600" letter-spacing="2" text-anchor="middle">GIT POWER METER</text>
-    <text x="840" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR SUPERPOWER</text>
+    <text x="840" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR POWER READING</text>
 
     <!-- ===== Left: commit graph ===== -->
     <g stroke-width="4" fill="none" stroke-linecap="round">
@@ -107,7 +113,7 @@
       <animateTransform attributeName="transform" type="rotate" from="0 600 260" to="360 600 260" dur="18s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- gpmeter hero (original character) -->
+    <!-- GPM, the gpmeter hero (original character) -->
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="2.4s" repeatCount="indefinite"/>
       <!-- cape -->
@@ -150,35 +156,73 @@
       <path d="M591 160 Q600 167 609 160" fill="none" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/>
     </g>
 
-    <text x="600" y="432" fill="#ffcf6b" font-size="22" font-weight="800" text-anchor="middle" letter-spacing="1">GPMan</text>
-    <text x="600" y="458" fill="#c9d4f5" font-size="14" text-anchor="middle">Git-Power Man · analyzes .git locally</text>
+    <text x="600" y="432" fill="#ffcf6b" font-size="22" font-weight="800" text-anchor="middle" letter-spacing="1">GPM</text>
+    <text x="600" y="458" fill="#c9d4f5" font-size="14" text-anchor="middle">Git Power Meter · reads .git locally</text>
 
     <!-- Flow out -->
     <path d="M695 260 H790" stroke="#ffb020" stroke-width="10" stroke-opacity="0.85" fill="none" stroke-linecap="round"/>
     <path d="M778 246 L800 260 L778 274" fill="none" stroke="#ffb020" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- ===== Right: score card ===== -->
+    <!-- ===== Right: power meter ===== -->
     <g transform="translate(830 110)">
       <rect width="320" height="300" rx="18" fill="#1b2350" stroke="#ffcf6b" stroke-opacity="0.5" stroke-width="1.5"/>
-      <text x="28" y="48" fill="#8ea2d8" font-size="14" font-weight="600" letter-spacing="1.5">POWER SCORE</text>
-      <text x="28" y="112" fill="#ffffff" font-size="64" font-weight="800">9,001</text>
-      <text x="200" y="112" fill="#ffcf6b" font-size="20" font-weight="700">⚡ Lv.42</text>
+      <text x="160" y="40" fill="#8ea2d8" font-size="14" font-weight="600" letter-spacing="1.5" text-anchor="middle">POWER METER</text>
 
-      <g font-size="14" fill="#c9d4f5">
-        <text x="28" y="160">Frequency</text>
-        <rect x="28" y="170" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
-        <rect x="28" y="170" width="230" height="10" rx="5" fill="url(#bar)"/>
+      <!-- dial -->
+      <path d="M62 168 A98 98 0 0 1 258 168" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="18" stroke-linecap="round"/>
+      <path d="M62 168 A98 98 0 0 1 258 168" fill="none" stroke="url(#dial)" stroke-width="12" stroke-linecap="round"/>
+      <g stroke="#c9d4f5" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+        <line x1="84.0" y1="168.0" x2="73.0" y2="168.0" stroke-width="3"/>
+        <line x1="80.0" y1="155.3" x2="74.1" y2="154.4"/>
+        <line x1="83.0" y1="143.0" x2="77.3" y2="141.1"/>
+        <line x1="87.8" y1="131.2" x2="82.5" y2="128.5"/>
+        <line x1="94.5" y1="120.4" x2="89.6" y2="116.9"/>
+        <line x1="106.3" y1="114.3" x2="98.5" y2="106.5" stroke-width="3"/>
+        <line x1="112.4" y1="102.5" x2="108.9" y2="97.6"/>
+        <line x1="123.2" y1="95.8" x2="120.5" y2="90.5"/>
+        <line x1="135.0" y1="91.0" x2="133.1" y2="85.3"/>
+        <line x1="147.3" y1="88.0" x2="146.4" y2="82.1"/>
+        <line x1="160.0" y1="92.0" x2="160.0" y2="81.0" stroke-width="3"/>
+        <line x1="172.7" y1="88.0" x2="173.6" y2="82.1"/>
+        <line x1="185.0" y1="91.0" x2="186.9" y2="85.3"/>
+        <line x1="196.8" y1="95.8" x2="199.5" y2="90.5"/>
+        <line x1="207.6" y1="102.5" x2="211.1" y2="97.6"/>
+        <line x1="213.7" y1="114.3" x2="221.5" y2="106.5" stroke-width="3"/>
+        <line x1="225.5" y1="120.4" x2="230.4" y2="116.9"/>
+        <line x1="232.2" y1="131.2" x2="237.5" y2="128.5"/>
+        <line x1="237.0" y1="143.0" x2="242.7" y2="141.1"/>
+        <line x1="240.0" y1="155.3" x2="245.9" y2="154.4"/>
+        <line x1="236.0" y1="168.0" x2="247.0" y2="168.0" stroke-width="3"/>
+      </g>
+      <text x="62" y="192" fill="#8ea2d8" font-size="11" font-weight="600" text-anchor="middle">LOW</text>
+      <text x="258" y="192" fill="#ff5e3a" font-size="11" font-weight="700" text-anchor="middle">MAX</text>
 
-        <text x="28" y="207">Consistency</text>
-        <rect x="28" y="217" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
-        <rect x="28" y="217" width="195" height="10" rx="5" fill="url(#bar)"/>
+      <!-- needle: sweeps up once, then trembles at the reading -->
+      <g transform="rotate(63 160 168)">
+        <animateTransform attributeName="transform" type="rotate" values="-90 160 168;69 160 168;63 160 168" keyTimes="0;0.7;1" dur="1.6s" fill="freeze"/>
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="0 160 168;-2 160 168;1.5 160 168;0 160 168" dur="0.9s" begin="1.6s" repeatCount="indefinite"/>
+          <path d="M155 168 L160 88 L165 168 Z" fill="#fff3b0"/>
+        </g>
+      </g>
+      <circle cx="160" cy="168" r="11" fill="#ffcf6b" stroke="#1b2350" stroke-width="3"/>
 
-        <text x="28" y="254">Impact</text>
-        <rect x="28" y="264" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
-        <rect x="28" y="264" width="250" height="10" rx="5" fill="url(#bar)"/>
+      <text x="160" y="216" fill="#ffffff" font-size="34" font-weight="800" text-anchor="middle">9,001 <tspan fill="#ffcf6b" font-size="17" font-weight="700">⚡ Lv.42</tspan></text>
+
+      <!-- sub-gauges -->
+      <g font-size="12" fill="#c9d4f5" text-anchor="middle">
+        <text x="56" y="256">Frequency</text>
+        <rect x="20" y="266" width="72" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="20" y="266" width="63" height="8" rx="4" fill="url(#bar)"/>
+        <text x="160" y="256">Consistency</text>
+        <rect x="124" y="266" width="72" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="124" y="266" width="53" height="8" rx="4" fill="url(#bar)"/>
+        <text x="264" y="256">Impact</text>
+        <rect x="228" y="266" width="72" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="228" y="266" width="68" height="8" rx="4" fill="url(#bar)"/>
       </g>
     </g>
 
-    <text x="990" y="455" fill="#c9d4f5" font-size="14" text-anchor="middle">your development power, measured</text>
+    <text x="990" y="455" fill="#c9d4f5" font-size="14" text-anchor="middle">your development power, on the meter</text>
   </g>
 </svg>

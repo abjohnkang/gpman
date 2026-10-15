@@ -1,8 +1,8 @@
-"""Generate flat GPMan pictures (same drawing as the hero in gpmeter-concept.svg).
+"""Generate flat GPM pictures (same drawing as the hero in gpmeter-concept.svg).
 
-    python3 scripts/make_gpman.py assets/gpman
+    python3 scripts/make_gpm.py assets/gpm
 
-PNG copies: for f in assets/gpman/*.svg; do rsvg-convert -w 800 "$f" -o "assets/gpman/png/$(basename "${f%.svg}").png"; done
+PNG copies: for f in assets/gpm/*.svg; do rsvg-convert -w 800 "$f" -o "assets/gpm/png/$(basename "${f%.svg}").png"; done
 
 Each SVG carries its own CSS animation (it plays wherever the SVG is shown as an
 image, including GitHub READMEs) and stops for viewers who prefer reduced motion.
@@ -95,16 +95,16 @@ REDUCED = '''
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }'''
 
 MOTION = {
-    "gpman-hero": '''
+    "gpm-hero": '''
     .arm-l { transform-origin: 568px 194px; animation: pump 2.4s ease-in-out infinite; }
     @keyframes pump { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-7deg); } }''',
-    "gpman-wave": '''
+    "gpm-wave": '''
     .arm-r { transform-origin: 632px 194px; animation: wave 1s ease-in-out infinite alternate; }
     .wl { animation: fade 1s ease-in-out infinite alternate; }
     .wl.b { animation-delay: -0.5s; }
     @keyframes wave { from { transform: rotate(-12deg); } to { transform: rotate(10deg); } }
     @keyframes fade { from { opacity: 0.15; } to { opacity: 1; } }''',
-    "gpman-flying": '''
+    "gpm-flying": '''
     .fig { animation: fly 1.6s ease-in-out infinite; }
     .cape { transform-origin: 600px 186px; animation: flutter 0.4s ease-in-out infinite alternate; }
     .sp { animation: streak 0.8s linear infinite; }
@@ -112,7 +112,7 @@ MOTION = {
     @keyframes fly { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(6px, -8px); } }
     @keyframes flutter { from { transform: scale(1, 1); } to { transform: scale(0.95, 1.03); } }
     @keyframes streak { 0% { transform: translate(18px, -13px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(-30px, 21px); opacity: 0; } }''',
-    "gpman-commit": '''
+    "gpm-commit": '''
     .arm-r { transform-origin: 632px 194px; animation: lift 2.4s ease-in-out infinite; }
     .node { transform-origin: 267px 36px; animation: lift-node 2.4s ease-in-out infinite; }
     .halo { transform-box: fill-box; transform-origin: center; animation: halo 1.2s ease-out infinite; }
@@ -122,7 +122,7 @@ MOTION = {
     @keyframes lift-node { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }  /* body bob + arm lift */
     @keyframes halo { 0% { transform: scale(0.7); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
     @keyframes light { 0%, 40%, 100% { fill: #2ecc9a; } 20% { fill: #dfffee; } }''',
-    "gpman-review": '''
+    "gpm-review": '''
     .arm-r { transform-origin: 632px 194px; animation: scan 2.4s ease-in-out infinite; }
     .lens { transform-origin: 232px 146px; animation: scan-lens 2.4s ease-in-out infinite; }
     .code rect { animation: read 3s ease-in-out infinite; }
@@ -131,7 +131,7 @@ MOTION = {
     @keyframes scan { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-22deg); } }
     @keyframes scan-lens { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-22deg); } }  /* follows the body bob */
     @keyframes read { 0%, 60%, 100% { opacity: 0.6; } 30% { opacity: 1; } }''',
-    "gpman-celebrate": '''
+    "gpm-celebrate": '''
     .fig { animation: jump 1.2s ease-in-out infinite; }
     .arm-l { transform-origin: 568px 194px; animation: cheer-l 0.6s ease-in-out infinite alternate; }
     .arm-r { transform-origin: 632px 194px; animation: cheer-r 0.6s ease-in-out infinite alternate; }
@@ -141,14 +141,14 @@ MOTION = {
     @keyframes cheer-l { from { transform: rotate(4deg); } to { transform: rotate(-6deg); } }
     @keyframes cheer-r { from { transform: rotate(-4deg); } to { transform: rotate(6deg); } }
     @keyframes fall { 0% { transform: translateY(-30px); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }''',
-    "gpman-oops": '''
+    "gpm-oops": '''
     .fig { animation: shake 2.4s ease-in-out infinite; }
     .drop { animation: drip 1.6s ease-in infinite; }
     .warn { animation: alarm 1.2s ease-in-out infinite; }
     @keyframes shake { 0%, 60%, 100% { transform: translateX(0); } 65%, 75%, 85% { transform: translateX(-3px); } 70%, 80%, 90% { transform: translateX(3px); } }
     @keyframes drip { 0% { transform: translateY(-6px); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(26px); opacity: 0; } }
     @keyframes alarm { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }''',
-    "gpman-avatar": '''
+    "gpm-avatar": '''
     .fig { animation: bob-s 2.4s ease-in-out infinite; }
     @keyframes bob-s { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }  /* scaled 2.4x */''',
 }
@@ -234,19 +234,19 @@ OOPS = '''<path class="drop" d="M286 66 C292 78 296 86 296 92 C296 100 290 104 2
 
 # ── pictures ─────────────────────────────────────────────────────────────────
 PICTURES = {
-    "gpman-hero": ("GPMan hero", "GPMan stands proud with one fist raised and the other hand on his hip.",
-                   "GPMan", hero(FIST_UP_L, HIP_R), star(80, 90, 10, "#fff3b0") + star(320, 120, 7, "#ffffff", "tw b"), ""),
-    "gpman-wave": ("GPMan waving", "GPMan grins and waves hello.",
+    "gpm-hero": ("GPM hero", "GPM stands proud with one fist raised and the other hand on his hip.",
+                   "GPM", hero(FIST_UP_L, HIP_R), star(80, 90, 10, "#fff3b0") + star(320, 120, 7, "#ffffff", "tw b"), ""),
+    "gpm-wave": ("GPM waving", "GPM grins and waves hello.",
                    "Hello, developer!", hero(DOWN_L, WAVE_R, GRIN), WAVE_LINES, ""),
-    "gpman-flying": ("GPMan flying", "GPMan flies up and to the right, fist forward, cape streaming behind him.",
+    "gpm-flying": ("GPM flying", "GPM flies up and to the right, fist forward, cape streaming behind him.",
                      "Push to main!", f'<g transform="translate(-10 -40) rotate(55 600 245)">{hero(FIST_UP_L, HIP_R, GRIN)}</g>', SPEED, ""),
-    "gpman-commit": ("GPMan commit", "GPMan holds up a glowing green +1 commit at the end of a commit chain.",
+    "gpm-commit": ("GPM commit", "GPM holds up a glowing green +1 commit at the end of a commit chain.",
                      "Commit power!", hero(HIP_L, HOLD_R, GRIN), COMMIT_CHAIN, COMMIT_NODE),
-    "gpman-review": ("GPMan code review", "GPMan inspects lines of code with a big magnifying glass.",
+    "gpm-review": ("GPM code review", "GPM inspects lines of code with a big magnifying glass.",
                      "Code review!", hero(HIP_L, LENS_R), CODE, LENS),
-    "gpman-celebrate": ("GPMan celebrating", "GPMan raises both fists and grins as confetti falls.",
+    "gpm-celebrate": ("GPM celebrating", "GPM raises both fists and grins as confetti falls.",
                         "Level up!", hero(FIST_UP_L, FIST_UP_R, GRIN), CONFETTI, ""),
-    "gpman-oops": ("GPMan oops", "GPMan looks worried next to a warning sign: something went wrong.",
+    "gpm-oops": ("GPM oops", "GPM looks worried next to a warning sign: something went wrong.",
                    "Oops! Merge conflict", hero(DOWN_L, DOWN_R, WORRY), "", OOPS),
 }
 
@@ -254,9 +254,9 @@ for name, (title, desc, caption, body, back, front) in PICTURES.items():
     (OUT / f"{name}.svg").write_text(page(name, title, desc, caption, body, back, front))
 
 # avatar: head-and-shoulders close-up, no caption
-(OUT / "gpman-avatar.svg").write_text(head(
-    "gpman-avatar", "GPMan avatar",
-    "Close-up of GPMan's masked, grinning face above his gold git-branch emblem, for profile pictures.",
+(OUT / "gpm-avatar.svg").write_text(head(
+    "gpm-avatar", "GPM avatar",
+    "Close-up of GPM's masked, grinning face above his gold git-branch emblem, for profile pictures.",
 ) + f'''
   <circle class="glow" cx="200" cy="190" r="190" fill="url(#glow)"/>
   <g transform="translate(200 215) scale(2.4) translate(-600 -190)"><g class="fig">{hero(HIP_L, HIP_R, GRIN)}
@@ -333,36 +333,36 @@ SIGH = '''<g class="puff"><circle cx="300" cy="300" r="14" fill="#c9d4f5" opacit
     <circle cx="338" cy="278" r="6" fill="#c9d4f5" opacity="0.3"/></g>'''
 
 FACES = {
-    "smiling": ("GPMan smiling", "GPMan smiles warmly.", "", '''
+    "smiling": ("GPM smiling", "GPM smiles warmly.", "", '''
     .hd { transform-origin: 600px 178px; animation: tilt 3s ease-in-out infinite; }
     @keyframes tilt { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }'''),
-    "happy": ("GPMan happy", "GPMan laughs with happy closed eyes and an open grin.",
+    "happy": ("GPM happy", "GPM laughs with happy closed eyes and an open grin.",
               star(80, 100, 14, "#fff3b0") + star(330, 80, 10, "#ffffff", "tw b") + star(340, 230, 8, "#fff3b0", "tw"), '''
     .hd { animation: hop 0.8s ease-in-out infinite; }
     .bl { animation: glowy 0.8s ease-in-out infinite; }
     @keyframes hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
     @keyframes glowy { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }'''),
-    "wink": ("GPMan wink", "GPMan winks and sticks out the tip of his tongue.", star(318, 96, 14, "#fff3b0"), '''
+    "wink": ("GPM wink", "GPM winks and sticks out the tip of his tongue.", star(318, 96, 14, "#fff3b0"), '''
     .hd { transform-origin: 600px 178px; animation: lean 2.4s ease-in-out infinite; }
     @keyframes lean { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }'''),
-    "bored": ("GPMan bored", "GPMan looks bored, eyes half closed and glancing aside, sighing.", SIGH, '''
+    "bored": ("GPM bored", "GPM looks bored, eyes half closed and glancing aside, sighing.", SIGH, '''
     .hd { transform-origin: 600px 178px; animation: sway 4s ease-in-out infinite; }
     .puff { animation: sigh 4s ease-out infinite; }
     @keyframes sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(1deg); } }
     @keyframes sigh { 0%, 30% { transform: translate(-16px, 10px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translate(12px, -14px); opacity: 0; } }'''),
-    "sleepy": ("GPMan sleepy", "GPMan dozes off with closed eyes as Z letters float up.",
+    "sleepy": ("GPM sleepy", "GPM dozes off with closed eyes as Z letters float up.",
                zz(286, 120, 40, "z1") + zz(322, 86, 30, "z2") + zz(348, 58, 22, "z3"), '''
     .hd { transform-origin: 600px 178px; animation: nod 3s ease-in-out infinite; }
     .z1, .z2, .z3 { animation: float 3s ease-out infinite; }
     .z2 { animation-delay: 1s; } .z3 { animation-delay: 2s; }
     @keyframes nod { 0%, 100% { transform: rotate(0); } 60% { transform: rotate(7deg); } }
     @keyframes float { 0% { transform: translate(0, 12px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(14px, -18px); opacity: 0; } }'''),
-    "angry": ("GPMan angry", "GPMan is angry: slanted eyes, brows down, clenched teeth, red cheeks and an anger mark.", ANGER_MARK, '''
+    "angry": ("GPM angry", "GPM is angry: slanted eyes, brows down, clenched teeth, red cheeks and an anger mark.", ANGER_MARK, '''
     .hd { animation: rage 0.5s ease-in-out infinite; }
     .mark { transform-origin: 316px 92px; animation: throb 0.5s ease-in-out infinite; }
     @keyframes rage { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-1px); } 75% { transform: translateX(1px); } }
     @keyframes throb { 0%, 100% { transform: scale(0.85); } 50% { transform: scale(1.1); } }'''),
-    "crying": ("GPMan crying", "GPMan cries, tears streaming from his eyes.", "", '''
+    "crying": ("GPM crying", "GPM cries, tears streaming from his eyes.", "", '''
     .hd { animation: sob 1.2s ease-in-out infinite; }
     .mw { transform-origin: 600px 163px; animation: wobble 0.6s ease-in-out infinite alternate; }
     .drop { animation: fall-tear 1.2s ease-in infinite; }
@@ -387,7 +387,7 @@ def face_head(parts):
 
 
 for key, (title, desc, fx, css) in FACES.items():
-    name = f"gpman-face-{key}"
+    name = f"gpm-face-{key}"
     MOTION[name] = css
     (OUT / f"{name}.svg").write_text(head(name, title, desc) + f'''
   <circle class="glow" cx="200" cy="190" r="170" fill="url(#glow)"/>

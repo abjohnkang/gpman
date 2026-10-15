@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
-  <title id="title">GPMan smiling</title>
-  <desc id="desc">GPMan smiles warmly.</desc>
+  <title id="title">GPM wink</title>
+  <desc id="desc">GPM winks and sticks out the tip of his tongue.</desc>
   <style>
     .glow { transform-origin: 200px 200px; animation: glow 2.4s ease-in-out infinite; }
     .eyes { transform-origin: 600px 146px; animation: blink 4s infinite; }
@@ -12,8 +12,8 @@
     @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
     @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes twinkle { 0%, 100% { transform: scale(0.6); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
-    .hd { transform-origin: 600px 178px; animation: tilt 3s ease-in-out infinite; }
-    @keyframes tilt { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+    .hd { transform-origin: 600px 178px; animation: lean 2.4s ease-in-out infinite; }
+    @keyframes lean { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <defs>
@@ -33,8 +33,8 @@
     <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
     <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
     <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
-    <g class="eyes"><ellipse cx="587" cy="146" rx="6" ry="4" fill="#fff"/><ellipse cx="613" cy="146" rx="6" ry="4" fill="#fff"/></g><g class=""><circle cx="579" cy="161" r="5" fill="#ff8a8a" opacity="0.4"/><circle cx="621" cy="161" r="5" fill="#ff8a8a" opacity="0.4"/></g><path d="M591 160 Q600 167 609 160" fill="none" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse class="eyes" cx="587" cy="146" rx="6" ry="4" fill="#fff"/><path d="M607 148 Q613 140 619 148" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><g class=""><circle cx="579" cy="161" r="5" fill="#ff8a8a" opacity="0.45"/><circle cx="621" cy="161" r="5" fill="#ff8a8a" opacity="0.45"/></g><path d="M590 160 Q601 167 610 157" fill="none" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="606" cy="163.5" rx="2.6" ry="2" fill="#ff8a8a"/>
     </g>
   </g>
-  
+  <path class="tw" d="M318 82 Q318 96 332 96 Q318 96 318 110 Q318 96 304 96 Q318 96 318 82 Z" fill="#fff3b0"/>
 </svg>
