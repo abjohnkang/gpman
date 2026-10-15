@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="title desc">
+  <title id="title">Git Power concept</title>
+  <desc id="desc">Commit history from your Git branches flows into a glowing power core, which converts it into a power score built from frequency, consistency and impact.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#151b3a"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe680" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#ffb020" stop-opacity="0.65"/>
+      <stop offset="0.7" stop-color="#ff6a00" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3b0"/>
+      <stop offset="1" stop-color="#ffa41b"/>
+    </linearGradient>
+    <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="410" y1="0" x2="505" y2="0">
+      <stop offset="0" stop-color="#4f8cff" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffb020" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb020"/>
+      <stop offset="1" stop-color="#ff5e3a"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="520" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="520" rx="24" fill="url(#grid)"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <!-- Section labels -->
+    <text x="70" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR COMMITS</text>
+    <text x="600" y="70" fill="#ffcf6b" font-size="15" font-weight="600" letter-spacing="2" text-anchor="middle">GIT POWER</text>
+    <text x="840" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR SUPERPOWER</text>
+
+    <!-- ===== Left: commit graph ===== -->
+    <g stroke-width="4" fill="none" stroke-linecap="round">
+      <!-- main -->
+      <path d="M70 260 H400" stroke="#4f8cff"/>
+      <!-- feature branch -->
+      <path d="M110 260 C140 260 140 170 175 170 H300 C335 170 335 260 365 260" stroke="#2ecc9a"/>
+      <!-- fix branch -->
+      <path d="M150 260 C180 260 180 350 215 350 H280 C315 350 315 260 340 260" stroke="#c77dff"/>
+    </g>
+    <g stroke="#0b1020" stroke-width="3">
+      <circle cx="70" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="110" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="150" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="250" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="340" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="365" cy="260" r="10" fill="#4f8cff"/>
+      <circle cx="200" cy="170" r="10" fill="#2ecc9a"/>
+      <circle cx="245" cy="170" r="10" fill="#2ecc9a"/>
+      <circle cx="290" cy="170" r="10" fill="#2ecc9a"/>
+      <circle cx="235" cy="350" r="10" fill="#c77dff"/>
+      <circle cx="270" cy="350" r="10" fill="#c77dff"/>
+    </g>
+    <text x="200" y="145" fill="#2ecc9a" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">feature/*</text>
+    <text x="210" y="385" fill="#c77dff" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">fix/*</text>
+    <text x="70" y="292" fill="#4f8cff" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">main</text>
+
+    <!-- Contribution heatmap -->
+    <g transform="translate(70 425)">
+      <g fill="#2ecc9a">
+        <rect x="0"   y="0" width="16" height="16" rx="3" opacity="0.15"/>
+        <rect x="20"  y="0" width="16" height="16" rx="3" opacity="0.45"/>
+        <rect x="40"  y="0" width="16" height="16" rx="3" opacity="0.8"/>
+        <rect x="60"  y="0" width="16" height="16" rx="3" opacity="0.3"/>
+        <rect x="80"  y="0" width="16" height="16" rx="3" opacity="1"/>
+        <rect x="100" y="0" width="16" height="16" rx="3" opacity="0.6"/>
+        <rect x="120" y="0" width="16" height="16" rx="3" opacity="0.15"/>
+        <rect x="140" y="0" width="16" height="16" rx="3" opacity="0.9"/>
+        <rect x="160" y="0" width="16" height="16" rx="3" opacity="0.5"/>
+        <rect x="180" y="0" width="16" height="16" rx="3" opacity="1"/>
+        <rect x="200" y="0" width="16" height="16" rx="3" opacity="0.7"/>
+        <rect x="220" y="0" width="16" height="16" rx="3" opacity="0.35"/>
+        <rect x="240" y="0" width="16" height="16" rx="3" opacity="0.95"/>
+        <rect x="260" y="0" width="16" height="16" rx="3" opacity="0.6"/>
+        <rect x="280" y="0" width="16" height="16" rx="3" opacity="1"/>
+        <rect x="300" y="0" width="16" height="16" rx="3" opacity="0.8"/>
+      </g>
+      <text x="0" y="40" fill="#8ea2d8" font-size="13">commit history · daily activity</text>
+    </g>
+
+    <!-- ===== Flow into core ===== -->
+    <path d="M410 260 C450 260 470 260 505 260" stroke="url(#flow)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M410 260 C450 260 470 260 505 260" stroke="#fff3b0" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="6 14">
+      <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- ===== Center: power core ===== -->
+    <circle cx="600" cy="260" r="150" fill="url(#coreGlow)">
+      <animate attributeName="r" values="140;158;140" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="260" r="92" fill="none" stroke="#ffcf6b" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 10">
+      <animateTransform attributeName="transform" type="rotate" from="0 600 260" to="360 600 260" dur="18s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="260" r="70" fill="url(#core)"/>
+    <circle cx="600" cy="260" r="70" fill="none" stroke="#fff8d6" stroke-width="3"/>
+    <!-- lightning bolt -->
+    <path d="M612 205 L572 268 H600 L588 318 L630 250 H602 Z" fill="#1a1f3d" stroke="#1a1f3d" stroke-width="4" stroke-linejoin="round"/>
+
+    <text x="600" y="455" fill="#c9d4f5" font-size="14" text-anchor="middle">analyzes .git locally</text>
+
+    <!-- Flow out -->
+    <path d="M695 260 H790" stroke="#ffb020" stroke-width="10" stroke-opacity="0.85" fill="none" stroke-linecap="round"/>
+    <path d="M778 246 L800 260 L778 274" fill="none" stroke="#ffb020" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- ===== Right: score card ===== -->
+    <g transform="translate(830 110)">
+      <rect width="320" height="300" rx="18" fill="#1b2350" stroke="#ffcf6b" stroke-opacity="0.5" stroke-width="1.5"/>
+      <text x="28" y="48" fill="#8ea2d8" font-size="14" font-weight="600" letter-spacing="1.5">POWER SCORE</text>
+      <text x="28" y="112" fill="#ffffff" font-size="64" font-weight="800">9,001</text>
+      <text x="200" y="112" fill="#ffcf6b" font-size="20" font-weight="700">⚡ Lv.42</text>
+
+      <g font-size="14" fill="#c9d4f5">
+        <text x="28" y="160">Frequency</text>
+        <rect x="28" y="170" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="28" y="170" width="230" height="10" rx="5" fill="url(#bar)"/>
+
+        <text x="28" y="207">Consistency</text>
+        <rect x="28" y="217" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="28" y="217" width="195" height="10" rx="5" fill="url(#bar)"/>
+
+        <text x="28" y="254">Impact</text>
+        <rect x="28" y="264" width="264" height="10" rx="5" fill="#ffffff" fill-opacity="0.08"/>
+        <rect x="28" y="264" width="250" height="10" rx="5" fill="url(#bar)"/>
+      </g>
+    </g>
+
+    <text x="990" y="455" fill="#c9d4f5" font-size="14" text-anchor="middle">your development power, measured</text>
+  </g>
+</svg>
