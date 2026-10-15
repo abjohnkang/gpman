@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="title desc">
-  <title id="title">gpmeter concept</title>
+  <title id="title">gpman concept</title>
   <desc id="desc">Commit history from your Git branches flows into GPM, the caped Git Power Meter hero, and comes out as a reading on a power meter: a needle near max, a power score with a level, and three sub-gauges for frequency, consistency and impact.</desc>
 
   <defs>
@@ -113,7 +113,7 @@
       <animateTransform attributeName="transform" type="rotate" from="0 600 260" to="360 600 260" dur="18s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- GPM, the gpmeter hero (original character) -->
+    <!-- GPM, the gpman hero (original character) -->
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="2.4s" repeatCount="indefinite"/>
       <!-- cape -->

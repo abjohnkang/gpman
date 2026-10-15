@@ -1,16 +1,16 @@
-# gpmeter — Git Power Meter
+# gpman — Git Power Meter
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
-  <img src="assets/gpmeter-concept.svg" alt="gpmeter concept: your commit history flows into GPM, the Git Power Meter hero, and comes out as a power reading on a meter with sub-gauges for frequency, consistency and impact" width="100%">
+  <img src="assets/gpman-concept.svg" alt="gpman concept: your commit history flows into GPM, the Git Power Meter hero, and comes out as a power reading on a meter with sub-gauges for frequency, consistency and impact" width="100%">
 </p>
 
-gpmeter (Git Power Meter) is a power meter for your Git history. Point it at a repository and it reads your commits the way a meter reads current: how often you commit, how steadily you keep at it, and how much your changes move the codebase. The result is a single power reading and a level, so you can see where your development power stands and watch it change over time.
+gpman (Git Power Meter) is a power meter for your Git history. Point it at a repository and it reads your commits the way a meter reads current: how often you commit, how steadily you keep at it, and how much your changes move the codebase. The result is a single power reading and a level, so you can see where your development power stands and watch it change over time.
 
 ## How the meter works
 
-gpmeter combines three gauges into one reading:
+gpman combines three gauges into one reading:
 
 | Gauge | What it reads |
 | --- | --- |
@@ -26,7 +26,7 @@ gpmeter combines three gauges into one reading:
 
 ## Meet GPM
 
-GPM is the gpmeter mascot: the Git Power Meter as a caped hero, with a git branch on his chest. Feel free to use him in docs, slides, release notes and posts.
+GPM is the gpman mascot: the Git Power Meter as a caped hero, with a git branch on his chest. Feel free to use him in docs, slides, release notes and posts.
 
 <table>
   <tr>
@@ -72,4 +72,4 @@ A GPM favicon set for the website is in [`assets/favicon/`](assets/favicon/) (ma
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/abjohnkang/gpmeter.git
+   git clone https://github.com/abjohnkang/gpman.git

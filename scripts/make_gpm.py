@@ -1,4 +1,4 @@
-"""Generate flat GPM pictures (same drawing as the hero in gpmeter-concept.svg).
+"""Generate flat GPM pictures (same drawing as the hero in gpman-concept.svg).
 
     python3 scripts/make_gpm.py assets/gpm
 
