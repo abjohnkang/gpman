@@ -1,4 +1,4 @@
-"""Generate flat GPMan pictures (same drawing as the hero in git-power-concept.svg).
+"""Generate flat GPMan pictures (same drawing as the hero in gpmeter-concept.svg).
 
     python3 scripts/make_gpman.py assets/gpman
 

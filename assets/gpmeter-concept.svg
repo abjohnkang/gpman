@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="title desc">
-  <title id="title">Git Power concept</title>
+  <title id="title">gpmeter concept</title>
   <desc id="desc">Commit history from your Git branches powers up GPMan (Git-Power Man), a caped superhero who converts it into a power score built from frequency, consistency and impact.</desc>
 
   <defs>
@@ -41,7 +41,7 @@
 
     <!-- Section labels -->
     <text x="70" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR COMMITS</text>
-    <text x="600" y="70" fill="#ffcf6b" font-size="15" font-weight="600" letter-spacing="2" text-anchor="middle">GIT POWER</text>
+    <text x="600" y="70" fill="#ffcf6b" font-size="15" font-weight="600" letter-spacing="2" text-anchor="middle">GIT POWER METER</text>
     <text x="840" y="70" fill="#8ea2d8" font-size="15" font-weight="600" letter-spacing="2">YOUR SUPERPOWER</text>
 
     <!-- ===== Left: commit graph ===== -->
@@ -107,7 +107,7 @@
       <animateTransform attributeName="transform" type="rotate" from="0 600 260" to="360 600 260" dur="18s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- Git Power hero (original character) -->
+    <!-- gpmeter hero (original character) -->
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="2.4s" repeatCount="indefinite"/>
       <!-- cape -->

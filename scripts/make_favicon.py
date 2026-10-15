@@ -50,8 +50,8 @@ png(180, "apple-touch-icon.png")
 Image.open(big).save(OUT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
 (OUT / "site.webmanifest").write_text(json.dumps({
-    "name": "Git Power",
-    "short_name": "Git Power",
+    "name": "gpmeter",
+    "short_name": "gpmeter",
     "icons": [
         {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
         {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},

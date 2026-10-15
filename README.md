@@ -1,12 +1,12 @@
-# Git Power
+# gpmeter — Git Power Meter
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
-  <img src="assets/git-power-concept.svg" alt="Git Power concept: your commit history powers up GPMan (Git-Power Man) and becomes a power score built from frequency, consistency and impact" width="100%">
+  <img src="assets/gpmeter-concept.svg" alt="gpmeter concept: your commit history powers up GPMan (Git-Power Man) and becomes a power score built from frequency, consistency and impact" width="100%">
 </p>
 
-Git Power is a tool designed to measure your software development activity and impact based on your Git commit history. By analyzing your repository data, it calculates an activity score that reflects your coding output, consistency, and overall development power.
+gpmeter (Git Power Meter) is a tool designed to measure your software development activity and impact based on your Git commit history. By analyzing your repository data, it calculates an activity score that reflects your coding output, consistency, and overall development power.
 
 ## Features
 
@@ -16,7 +16,7 @@ Git Power is a tool designed to measure your software development activity and i
 
 ## Meet GPMan
 
-GPMan (Git-Power Man) is the Git Power mascot. Feel free to use him in docs, slides, release notes and posts.
+GPMan (Git-Power Man) is the gpmeter mascot. Feel free to use him in docs, slides, release notes and posts.
 
 <table>
   <tr>
@@ -62,4 +62,4 @@ A GPMan favicon set for the website is in [`assets/favicon/`](assets/favicon/) (
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/abjohnkang/git-power.git](https://github.com/abjohnkang/git-power.git)
+   git clone https://github.com/abjohnkang/gpmeter.git
