@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
-  <img src="assets/git-power-concept.svg" alt="Git Power concept: your commit history flows into the Git Power core and becomes a power score built from frequency, consistency and impact" width="100%">
+  <img src="assets/git-power-concept.svg" alt="Git Power concept: your commit history powers up GPMan (Git-Power Man) and becomes a power score built from frequency, consistency and impact" width="100%">
 </p>
 
 Git Power is a tool designed to measure your software development activity and impact based on your Git commit history. By analyzing your repository data, it calculates an activity score that reflects your coding output, consistency, and overall development power.

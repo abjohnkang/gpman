@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="title desc">
   <title id="title">Git Power concept</title>
-  <desc id="desc">Commit history from your Git branches flows into a glowing power core, which converts it into a power score built from frequency, consistency and impact.</desc>
+  <desc id="desc">Commit history from your Git branches powers up GPMan (Git-Power Man), a caped superhero who converts it into a power score built from frequency, consistency and impact.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -103,15 +103,55 @@
     <circle cx="600" cy="260" r="150" fill="url(#coreGlow)">
       <animate attributeName="r" values="140;158;140" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="600" cy="260" r="92" fill="none" stroke="#ffcf6b" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 10">
+    <circle cx="600" cy="260" r="130" fill="none" stroke="#ffcf6b" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 10">
       <animateTransform attributeName="transform" type="rotate" from="0 600 260" to="360 600 260" dur="18s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="600" cy="260" r="70" fill="url(#core)"/>
-    <circle cx="600" cy="260" r="70" fill="none" stroke="#fff8d6" stroke-width="3"/>
-    <!-- lightning bolt -->
-    <path d="M612 205 L572 268 H600 L588 318 L630 250 H602 Z" fill="#1a1f3d" stroke="#1a1f3d" stroke-width="4" stroke-linejoin="round"/>
 
-    <text x="600" y="455" fill="#c9d4f5" font-size="14" text-anchor="middle">analyzes .git locally</text>
+    <!-- Git Power hero (original character) -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="2.4s" repeatCount="indefinite"/>
+      <!-- cape -->
+      <path d="M566 182 C528 236 510 330 482 400 Q540 382 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#ff7a1a"/>
+      <path d="M600 190 C596 270 596 330 600 392 Q660 382 718 400 C690 330 672 236 634 182 Z" fill="#e8590c"/>
+      <!-- legs and boots -->
+      <path d="M572 286 L566 382 H594 L599 286 Z" fill="#5a3fd6"/>
+      <path d="M601 286 L606 382 H634 L628 286 Z" fill="#5a3fd6"/>
+      <path d="M567 352 H594 L594 384 Q580 392 560 386 Z" fill="#ffb020"/>
+      <path d="M606 352 H633 L640 386 Q620 392 606 384 Z" fill="#ffb020"/>
+      <!-- right arm on hip -->
+      <path d="M632 194 L662 238 L634 266" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="634" cy="266" r="11" fill="#ffb020"/>
+      <!-- torso -->
+      <path d="M564 186 Q600 172 636 186 L630 292 H570 Z" fill="#6c4cff"/>
+      <rect x="568" y="274" width="64" height="13" rx="4" fill="#ffb020"/>
+      <rect x="592" y="272" width="16" height="17" rx="3" fill="#fff3b0"/>
+      <!-- left arm raised with fist -->
+      <path d="M568 194 L540 148 L532 108" fill="none" stroke="#6c4cff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="531" cy="100" r="14" fill="#ffb020"/>
+      <!-- chest emblem: git branch -->
+      <circle cx="600" cy="224" r="24" fill="#ffcf6b" stroke="#fff3b0" stroke-width="3"/>
+      <g stroke="#1a1f3d" stroke-width="3.5" fill="none" stroke-linecap="round">
+        <path d="M592 210 V238"/>
+        <path d="M608 214 C608 226 592 222 592 232"/>
+      </g>
+      <g fill="#1a1f3d">
+        <circle cx="592" cy="210" r="4"/>
+        <circle cx="592" cy="238" r="4"/>
+        <circle cx="608" cy="214" r="4"/>
+      </g>
+      <!-- neck and head -->
+      <rect x="592" y="166" width="16" height="16" fill="#f2c39c"/>
+      <circle cx="600" cy="142" r="30" fill="#ffd7b5"/>
+      <path d="M570 140 C568 112 590 104 604 106 C624 106 634 120 631 138 C622 124 606 120 590 126 C582 130 576 134 570 140 Z" fill="#2b2d55"/>
+      <!-- domino mask -->
+      <path d="M572 140 Q600 130 628 140 L626 154 Q614 158 600 150 Q586 158 574 154 Z" fill="#6c4cff"/>
+      <ellipse cx="587" cy="146" rx="6" ry="4" fill="#ffffff"/>
+      <ellipse cx="613" cy="146" rx="6" ry="4" fill="#ffffff"/>
+      <path d="M591 160 Q600 167 609 160" fill="none" stroke="#7a3b2e" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <text x="600" y="432" fill="#ffcf6b" font-size="22" font-weight="800" text-anchor="middle" letter-spacing="1">GPMan</text>
+    <text x="600" y="458" fill="#c9d4f5" font-size="14" text-anchor="middle">Git-Power Man · analyzes .git locally</text>
 
     <!-- Flow out -->
     <path d="M695 260 H790" stroke="#ffb020" stroke-width="10" stroke-opacity="0.85" fill="none" stroke-linecap="round"/>
