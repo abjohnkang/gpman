@@ -3,12 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
-  <img src="assets/gpman.svg" alt="GPMan (Git-Power Man), the Git Power mascot: a 3D cartoon superhero in a purple suit and orange cape with a git-branch emblem, raising one fist" width="260">
-  <br>
-  <b>Meet GPMan, the Git-Power Man.</b> He turns your commit history into a superpower.
-</p>
-
-<p align="center">
   <img src="assets/git-power-concept.svg" alt="Git Power concept: your commit history powers up GPMan (Git-Power Man) and becomes a power score built from frequency, consistency and impact" width="100%">
 </p>
 
