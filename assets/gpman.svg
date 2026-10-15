@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img">
+  <title>GPMan</title>
+  <desc>GPMan (Git-Power Man), a 3D cartoon superhero in a purple suit and orange cape with a domino mask, gold gloves, belt and boots, and a round gold git-branch emblem, raising one fist with the other hand on his hip.</desc>
+  <!-- Rig ids for cute-3d-character animate.py: root, head, faces (face-normal, face-happy), eyes, deco.
+       Pivots: feet 400,690  neck 400,330  eye-y 224 -->
+  <defs>
+    <!-- skin: warm highlight, base, red-orange subsurface band, cool core shadow, bounce -->
+    <radialGradient id="gp-skin" cx="0.42" cy="0.36" r="0.72" fx="0.32" fy="0.26">
+      <stop offset="0" stop-color="#ffe8d2"/>
+      <stop offset="0.42" stop-color="#f6bd93"/>
+      <stop offset="0.68" stop-color="#e48a68"/>
+      <stop offset="0.88" stop-color="#b8676e"/>
+      <stop offset="1" stop-color="#c9817f"/>
+    </radialGradient>
+    <radialGradient id="gp-suit" cx="0.42" cy="0.34" r="0.78" fx="0.32" fy="0.24">
+      <stop offset="0" stop-color="#b9a8ff"/>
+      <stop offset="0.38" stop-color="#7457f5"/>
+      <stop offset="0.75" stop-color="#4b2fc4"/>
+      <stop offset="0.92" stop-color="#341f8f"/>
+      <stop offset="1" stop-color="#4a36a8"/>
+    </radialGradient>
+    <radialGradient id="gp-cape" cx="0.3" cy="0.2" r="0.95" fx="0.24" fy="0.14">
+      <stop offset="0" stop-color="#ffc18a"/>
+      <stop offset="0.35" stop-color="#ff7a2e"/>
+      <stop offset="0.75" stop-color="#e2452a"/>
+      <stop offset="1" stop-color="#a8283a"/>
+    </radialGradient>
+    <linearGradient id="gp-cape-in" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8322f"/>
+      <stop offset="1" stop-color="#7a1d3a"/>
+    </linearGradient>
+    <radialGradient id="gp-gold" cx="0.4" cy="0.32" r="0.75" fx="0.3" fy="0.22">
+      <stop offset="0" stop-color="#fff6cf"/>
+      <stop offset="0.3" stop-color="#ffd24a"/>
+      <stop offset="0.65" stop-color="#f29a16"/>
+      <stop offset="0.85" stop-color="#a8521e"/>
+      <stop offset="1" stop-color="#e09a3a"/>
+    </radialGradient>
+    <radialGradient id="gp-hair" cx="0.38" cy="0.3" r="0.8" fx="0.28" fy="0.2">
+      <stop offset="0" stop-color="#6d74d8"/>
+      <stop offset="0.4" stop-color="#2f3594"/>
+      <stop offset="0.85" stop-color="#1b1d5c"/>
+      <stop offset="1" stop-color="#2c3480"/>
+    </radialGradient>
+    <radialGradient id="gp-mask" cx="0.4" cy="0.3" r="0.8" fx="0.3" fy="0.2">
+      <stop offset="0" stop-color="#a08cff"/>
+      <stop offset="0.5" stop-color="#5a3de0"/>
+      <stop offset="1" stop-color="#36209a"/>
+    </radialGradient>
+    <radialGradient id="gp-iris" cx="0.45" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#7fd0ff"/>
+      <stop offset="0.6" stop-color="#2d7fd8"/>
+      <stop offset="1" stop-color="#173f8a"/>
+    </radialGradient>
+    <radialGradient id="gp-rim" cx="0.3" cy="0.24" r="0.95">
+      <stop offset="0.8" stop-color="#8fe3ff" stop-opacity="0"/>
+      <stop offset="0.96" stop-color="#8fe3ff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#8fe3ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gp-blush" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff6f7d" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ff6f7d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gp-bg" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#f2f8ff"/>
+      <stop offset="1" stop-color="#cfe2ff"/>
+    </radialGradient>
+    <clipPath id="gp-torso-clip">
+      <path d="M296 366 C292 346 326 336 362 340 H438 C474 336 508 346 504 366 C510 428 484 482 462 504 H338 C316 482 290 428 296 366 Z"/>
+    </clipPath>
+    <filter id="gp-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="gp-shine" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="gp-ao" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+
+  <!-- 0. Backdrop: cool, so the warm cape and skin pop -->
+  <rect id="bg" width="800" height="800" rx="160" fill="url(#gp-bg)"/>
+
+  <!-- 1. Contact shadow -->
+  <g id="shadow"><ellipse cx="410" cy="694" rx="230" ry="30" fill="#5a4aa8" opacity="0.35" filter="url(#gp-soft)"/></g>
+
+  <g id="root">
+    <!-- 2. Cape, behind the body, blown to the right -->
+    <path d="M318 350 C270 440 238 560 214 684 Q300 662 380 684 Q470 652 566 668 Q620 650 668 626 C610 548 548 446 484 350 Z" fill="url(#gp-cape)"/>
+    <path d="M484 350 C548 446 610 548 668 626 Q624 612 588 622 C560 540 524 440 484 350 Z" fill="url(#gp-cape-in)"/>
+    <path d="M484 350 C548 446 610 548 668 626" fill="none" stroke="#8fe3ff" stroke-width="5" stroke-linecap="round" opacity="0.6" filter="url(#gp-shine)"/>
+    <path d="M300 470 C290 540 270 600 258 660" fill="none" stroke="#ffd0a8" stroke-width="8" stroke-linecap="round" opacity="0.45" filter="url(#gp-shine)"/>
+
+    <!-- 3. Raised arm (viewer left): upper arm, forearm, glove, fist -->
+    <ellipse cx="274" cy="332" rx="30" ry="50" fill="url(#gp-suit)" transform="rotate(-38 274 332)"/>
+    <ellipse cx="252" cy="250" rx="25" ry="50" fill="url(#gp-suit)" transform="rotate(4 252 250)"/>
+    <ellipse cx="253" cy="226" rx="34" ry="13" fill="url(#gp-gold)"/>
+    <rect x="218" y="146" width="70" height="72" rx="32" fill="url(#gp-gold)"/>
+    <rect x="218" y="146" width="70" height="72" rx="32" fill="url(#gp-rim)"/>
+    <g stroke="#a8521e" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7">
+      <path d="M236 162 V180"/><path d="M252 158 V178"/><path d="M268 160 V180"/>
+    </g>
+    <path d="M222 190 Q240 204 262 196" fill="none" stroke="#a8521e" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    <ellipse cx="236" cy="158" rx="12" ry="6" fill="#ffffff" opacity="0.8" transform="rotate(-20 236 158)" filter="url(#gp-shine)"/>
+
+    <!-- 4. Legs and boots (weight on the left leg, right leg out) -->
+    <path d="M344 500 L330 626 H384 L398 504 Z" fill="url(#gp-suit)"/>
+    <path d="M404 504 L432 626 H484 L456 498 Z" fill="url(#gp-suit)"/>
+    <path d="M322 600 H390 L392 662 Q394 690 368 692 H308 Q290 690 300 670 Z" fill="url(#gp-gold)"/>
+    <path d="M426 600 H492 L512 668 Q520 690 498 692 H440 Q416 690 420 664 Z" fill="url(#gp-gold)"/>
+    <ellipse cx="338" cy="614" rx="16" ry="6" fill="#ffffff" opacity="0.7" filter="url(#gp-shine)"/>
+    <ellipse cx="444" cy="614" rx="16" ry="6" fill="#ffffff" opacity="0.7" filter="url(#gp-shine)"/>
+
+    <!-- 5. Torso: rounded inverted triangle, chest emblem, belt -->
+    <path d="M296 366 C292 346 326 336 362 340 H438 C474 336 508 346 504 366 C510 428 484 482 462 504 H338 C316 482 290 428 296 366 Z" fill="url(#gp-suit)"/>
+    <g clip-path="url(#gp-torso-clip)">
+      <!-- cast shadow of the head on the chest -->
+      <ellipse cx="404" cy="350" rx="80" ry="26" fill="#1d1257" opacity="0.4" filter="url(#gp-ao)"/>
+      <!-- belt -->
+      <path d="M300 478 Q400 498 500 478 V506 Q400 526 300 506 Z" fill="url(#gp-gold)"/>
+      <rect x="384" y="482" width="32" height="28" rx="6" fill="#fff0b8" stroke="#c97a1e" stroke-width="3"/>
+    </g>
+    <path d="M296 366 C292 346 326 336 362 340 H438 C474 336 508 346 504 366 C510 428 484 482 462 504 H338 C316 482 290 428 296 366 Z" fill="url(#gp-rim)"/>
+    <ellipse cx="338" cy="384" rx="30" ry="14" fill="#ffffff" opacity="0.35" transform="rotate(-30 338 384)" filter="url(#gp-shine)"/>
+
+    <!-- chest emblem: round gold disc with a git branch -->
+    <circle cx="400" cy="420" r="42" fill="url(#gp-gold)"/>
+    <circle cx="400" cy="420" r="42" fill="none" stroke="#fff3c4" stroke-width="3" opacity="0.7"/>
+    <g stroke="#3a1f8f" stroke-width="7" fill="none" stroke-linecap="round">
+      <path d="M388 400 V440"/>
+      <path d="M414 404 C414 422 388 418 388 428"/>
+    </g>
+    <g fill="#3a1f8f">
+      <circle cx="388" cy="400" r="7"/><circle cx="388" cy="440" r="7"/><circle cx="414" cy="404" r="7"/>
+    </g>
+    <ellipse cx="384" cy="398" rx="10" ry="5" fill="#ffffff" opacity="0.7" filter="url(#gp-shine)"/>
+
+    <!-- shoulders -->
+    <circle cx="306" cy="370" r="34" fill="url(#gp-suit)"/>
+    <circle cx="494" cy="370" r="34" fill="url(#gp-suit)"/>
+    <circle cx="494" cy="370" r="34" fill="url(#gp-rim)"/>
+    <ellipse cx="296" cy="356" rx="14" ry="8" fill="#ffffff" opacity="0.45" transform="rotate(-30 296 356)" filter="url(#gp-shine)"/>
+
+    <!-- 6. Arm on the hip (viewer right) -->
+    <ellipse cx="522" cy="412" rx="27" ry="48" fill="url(#gp-suit)" transform="rotate(-32 522 412)"/>
+    <ellipse cx="512" cy="466" rx="23" ry="42" fill="url(#gp-suit)" transform="rotate(55 512 466)"/>
+    <ellipse cx="512" cy="466" rx="23" ry="42" fill="url(#gp-rim)" transform="rotate(55 512 466)"/>
+    <circle cx="476" cy="488" r="28" fill="url(#gp-gold)"/>
+    <ellipse cx="468" cy="478" rx="9" ry="5" fill="#ffffff" opacity="0.75" filter="url(#gp-shine)"/>
+
+    <!-- 7. Neck with ambient occlusion -->
+    <path d="M378 312 H422 L426 346 Q400 356 374 346 Z" fill="url(#gp-skin)"/>
+    <ellipse cx="400" cy="334" rx="30" ry="10" fill="#8c3f52" opacity="0.4" filter="url(#gp-ao)"/>
+
+    <!-- 8. Head (pivots at the neck 400,330) -->
+    <g id="head">
+      <!-- ears -->
+      <ellipse cx="308" cy="236" rx="15" ry="24" fill="url(#gp-skin)"/>
+      <ellipse cx="492" cy="236" rx="15" ry="24" fill="url(#gp-skin)"/>
+      <!-- face: round cranium, softened square jaw -->
+      <path d="M310 214 C310 140 350 116 400 116 C450 116 490 140 490 214 C490 276 466 318 400 334 C334 318 310 276 310 214 Z" fill="url(#gp-skin)"/>
+      <path d="M310 214 C310 140 350 116 400 116 C450 116 490 140 490 214 C490 276 466 318 400 334 C334 318 310 276 310 214 Z" fill="url(#gp-rim)"/>
+
+      <!-- hair: big clumps with their own highlight bands, quiff swept up-right -->
+      <path d="M396 124 C410 60 478 52 520 84 C484 84 462 100 456 128 Z" fill="url(#gp-hair)"/>
+      <path d="M302 222 C290 132 346 86 412 88 C480 90 520 136 500 222 C492 192 478 172 458 166 C458 146 436 136 418 148 C404 132 372 134 360 152 C336 146 318 168 322 192 C310 198 304 208 302 222 Z" fill="url(#gp-hair)"/>
+      <path d="M336 132 C356 108 392 100 420 104" fill="none" stroke="#9aa2ff" stroke-width="7" stroke-linecap="round" opacity="0.6" filter="url(#gp-shine)"/>
+      <path d="M420 86 C446 70 476 68 498 76" fill="none" stroke="#9aa2ff" stroke-width="5" stroke-linecap="round" opacity="0.6" filter="url(#gp-shine)"/>
+
+      <!-- domino mask, shared by every face -->
+      <path d="M318 224 C316 194 350 186 376 196 C388 201 394 203 400 203 C406 203 412 201 424 196 C450 186 484 194 482 224 C480 252 454 260 434 254 C418 249 410 240 400 240 C390 240 382 249 366 254 C346 260 320 252 318 224 Z" fill="url(#gp-mask)"/>
+      <path d="M326 206 Q350 192 376 198" fill="none" stroke="#c8bcff" stroke-width="4" stroke-linecap="round" opacity="0.7" filter="url(#gp-shine)"/>
+
+      <!-- nose -->
+      <ellipse cx="400" cy="266" rx="12" ry="10" fill="#e48a68" opacity="0.55"/>
+      <ellipse cx="396" cy="262" rx="5" ry="3" fill="#ffffff" opacity="0.7" filter="url(#gp-shine)"/>
+
+      <!-- 9. Faces -->
+      <g id="faces">
+        <g id="face-normal">
+          <ellipse cx="344" cy="278" rx="22" ry="12" fill="url(#gp-blush)"/>
+          <ellipse cx="456" cy="278" rx="22" ry="12" fill="url(#gp-blush)"/>
+          <g id="eyes">
+            <ellipse cx="366" cy="224" rx="19" ry="21" fill="#ffffff"/>
+            <ellipse cx="434" cy="224" rx="19" ry="21" fill="#ffffff"/>
+            <path d="M347 220 Q366 198 385 220 Q366 210 347 220 Z" fill="#c9c3ef" opacity="0.8"/>
+            <path d="M415 220 Q434 198 453 220 Q434 210 415 220 Z" fill="#c9c3ef" opacity="0.8"/>
+            <circle cx="370" cy="228" r="12" fill="url(#gp-iris)"/>
+            <circle cx="430" cy="228" r="12" fill="url(#gp-iris)"/>
+            <circle cx="370" cy="229" r="6" fill="#0f1433"/>
+            <circle cx="430" cy="229" r="6" fill="#0f1433"/>
+            <circle cx="365" cy="222" r="4" fill="#ffffff"/>
+            <circle cx="425" cy="222" r="4" fill="#ffffff"/>
+            <circle cx="375" cy="234" r="1.8" fill="#ffffff"/>
+            <circle cx="435" cy="234" r="1.8" fill="#ffffff"/>
+            <path d="M346 214 Q366 198 388 212" fill="none" stroke="#1d1257" stroke-width="4" stroke-linecap="round"/>
+            <path d="M412 212 Q434 198 454 214" fill="none" stroke="#1d1257" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <!-- determined brows: fall slightly toward the middle -->
+          <path d="M340 184 Q360 174 386 182" fill="none" stroke="#1b1d5c" stroke-width="9" stroke-linecap="round"/>
+          <path d="M414 180 Q440 170 462 178" fill="none" stroke="#1b1d5c" stroke-width="9" stroke-linecap="round"/>
+          <!-- confident smirk with a teeth strip, right corner higher -->
+          <path d="M370 288 Q402 314 434 282 Q404 298 370 288 Z" fill="#7a2b3a"/>
+          <path d="M376 290 Q404 300 428 286 L426 291 Q404 303 378 294 Z" fill="#ffffff"/>
+          <path d="M366 286 Q370 290 374 290" fill="none" stroke="#a8525a" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <g id="face-happy" display="none">
+          <ellipse cx="344" cy="276" rx="24" ry="13" fill="url(#gp-blush)"/>
+          <ellipse cx="456" cy="276" rx="24" ry="13" fill="url(#gp-blush)"/>
+          <path d="M348 232 Q366 208 386 232" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+          <path d="M414 232 Q434 208 452 232" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+          <path d="M350 230 Q366 212 384 230" fill="none" stroke="#1d1257" stroke-width="5" stroke-linecap="round"/>
+          <path d="M416 230 Q434 212 450 230" fill="none" stroke="#1d1257" stroke-width="5" stroke-linecap="round"/>
+          <path d="M342 176 Q362 164 386 172" fill="none" stroke="#1b1d5c" stroke-width="9" stroke-linecap="round"/>
+          <path d="M414 172 Q438 164 458 176" fill="none" stroke="#1b1d5c" stroke-width="9" stroke-linecap="round"/>
+          <path d="M364 280 Q400 334 436 280 Z" fill="#7a2b3a"/>
+          <path d="M370 282 H430 L426 292 H374 Z" fill="#ffffff"/>
+          <ellipse cx="400" cy="314" rx="16" ry="8" fill="#ff8a8a"/>
+        </g>
+      </g>
+
+      <!-- 10. Specular on the forehead -->
+      <ellipse cx="350" cy="168" rx="16" ry="7" fill="#ffffff" opacity="0.5" transform="rotate(-25 350 168)" filter="url(#gp-shine)"/>
+    </g>
+  </g>
+
+  <!-- 11. Static sparkles -->
+  <g id="deco">
+    <path d="M150 300 Q150 322 172 322 Q150 322 150 344 Q150 322 128 322 Q150 322 150 300 Z" fill="#fff3c4"/>
+    <path d="M660 220 Q660 238 678 238 Q660 238 660 256 Q660 238 642 238 Q660 238 660 220 Z" fill="#ffffff"/>
+  </g>
+</svg>
